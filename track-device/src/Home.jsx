@@ -1,19 +1,20 @@
 import { useState } from "react";
+import MapView from "./MapView";
 
 function Home() {
 
-  const [link,setLink] = useState("")
-  const [location,setLocation] = useState(null)
+  const [link, setLink] = useState("")
+  const [location, setLocation] = useState(null)
 
- const generateLink = () => {
+  const generateLink = () => {
 
-  const id = Math.floor(Math.random() * 100000)
+    const id = Math.floor(Math.random() * 100000)
 
-  const link = `https://device-tracker.netlify.app/track/${id}`
+    const link = `${window.location.origin}/track/${id}`
 
-  setLink(link)
+    setLink(link)
 
-}
+  }
 
   const copyLink = () => {
 
@@ -25,7 +26,7 @@ function Home() {
 
   return (
 
-    <div style={{textAlign:"center",marginTop:"80px"}}>
+    <div style={{ textAlign: "center", marginTop: "80px" }}>
 
       <h1>📍 Device Tracker Dashboard</h1>
 
@@ -33,7 +34,7 @@ function Home() {
         Generate Tracking Link
       </button>
 
-      <br/><br/>
+      <br /><br />
 
       {link && (
 
@@ -43,12 +44,12 @@ function Home() {
             value={link}
             readOnly
             style={{
-              width:"320px",
-              padding:"10px"
+              width: "320px",
+              padding: "10px"
             }}
           />
 
-          <button onClick={copyLink} style={{marginLeft:"10px"}}>
+          <button onClick={copyLink} style={{ marginLeft: "10px" }}>
             Copy Link
           </button>
 
@@ -56,28 +57,27 @@ function Home() {
 
       )}
 
-      <br/><br/>
+      <br /><br />
 
       <button
-        onClick={()=>{
+        onClick={() => {
           fetch("http://localhost:5000/location")
-          .then(res=>res.json())
-          .then(data=>setLocation(data))
+            .then(res => res.json())
+            .then(data => setLocation(data))
         }}
       >
         Get Latest Location
       </button>
 
       {location && (
-
         <div>
 
           <p>Latitude: {location.latitude}</p>
-
           <p>Longitude: {location.longitude}</p>
 
-        </div>
+          <MapView location={location} />
 
+        </div>
       )}
 
     </div>
