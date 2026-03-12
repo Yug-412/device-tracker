@@ -5,15 +5,15 @@ function Home() {
   const [link,setLink] = useState("")
   const [location,setLocation] = useState(null)
 
-  const generateLink = () => {
+ const generateLink = () => {
 
-    const id = Math.floor(Math.random()*100000)
+  const id = Math.floor(Math.random() * 100000)
 
-    const newLink = `http://localhost:5173/track/${id}`
+  const link = `https://device-tracker.netlify.app/track/${id}`
 
-    setLink(newLink)
+  setLink(link)
 
-  }
+}
 
   const copyLink = () => {
 
