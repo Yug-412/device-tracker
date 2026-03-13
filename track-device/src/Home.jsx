@@ -40,6 +40,10 @@ function Home() {
 
         <div>
 
+          <p>
+            Share this link with the user and ask them to open it:
+          </p>
+
           <input
             value={link}
             readOnly
@@ -52,6 +56,12 @@ function Home() {
           <button onClick={copyLink} style={{ marginLeft: "10px" }}>
             Copy Link
           </button>
+
+          <div style={{ marginTop: "12px" }}>
+            <a href={link} target="_blank" rel="noreferrer">
+              Open Tracking Link
+            </a>
+          </div>
 
         </div>
 
