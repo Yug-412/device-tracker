@@ -1,0 +1,78 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+.like-btn {
+  padding: 10px 20px;
+  background: #ddd;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.like-btn.liked {
+  background: #ff5252;
+  color: white;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}

@@ -1,0 +1,599 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+}
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+.nav{
+  background-color: rgb(240, 96, 180, .2);
+  color: rgb(0, 0, 0, .9);
+  padding: 7px 20px;
+  float: left;
+}
+.navbarmain{
+  position: sticky;
+  background-color: darkgray;
+}
+.nav1{
+  color: rgb(230, 203, 122, 1.5);
+  font-size: large;
+  float: right;
+  padding: 3px 4px;
+}
+.nav1:hover{
+  color: brown;
+}
+.nav2{
+  padding: 6px 30px;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+}
+.nav3{
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-weight:bold ;
+  text-decoration: none;
+  color: black;
+}
+.nav3:hover{
+  color: brown;
+}
+.nav4{
+  background-color:rgb(246, 122, 98,0.7);
+  text-align: center;
+  padding: 6px 4px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+.nav5{
+  background-color:rgb(246, 122, 98,0.7);
+text-align: center;
+padding: 6px 6px;
+text-decoration: none;
+color: white;
+}
+.nav4:hover{
+  background-color:rgb(246, 122, 98,1);
+}
+.nav5:hover{
+  background-color:rgb(246, 122, 98,1);
+}
+.nav6{
+height: 600px;
+width: 100%;
+background-image: url(/b.img/store5.jpeg);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+text-align: center;
+padding-top: 200px;
+font-size: 1.5em;
+font-weight: 800;
+color:rgba(227, 19, 54, 0.959);
+}
+h1{
+font-size: 2.5em;
+padding: 8px;
+}
+p{
+font-size: .8em;
+padding: 8px;
+}
+button{
+padding: 10px;
+background-color: rgb(255, 255, 255, .2);
+border: 1px white solid;
+color: white;
+transition: 0.7s;
+}
+button:hover{
+background-color: rgb(0, 0, 0,.6);
+color: white;
+}
+.contentimg{
+  padding: 100px 60px;
+ 
+}
+.nameofthecenter{
+  font-size: 40px;
+}
+.aboutus{
+  font-size: 2em;
+  background-color: rgb(246, 122, 98,0.1);
+  display: flex;
+  justify-content: center;
+  padding: 2px 2px;
+  color: lightcoral;
+ 
+
+}
+.portion{
+ padding: 100px 0px;
+}
+.text{
+  font-size: 3em;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+.p{
+  font-size: 25px;
+  color: rgb(0, 0, 0,0.5);
+  border-left: 1px lightcoral solid;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.flex{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.box1{
+  background-color:rgb(246, 122, 98,.3);
+ text-align: center;
+ padding: 0px 20px;
+
+
+}
+.box2{
+  background-color:rgb(246, 122, 98,.3);
+ text-align: center;
+ padding: 0px 20px;
+
+
+}
+  .box1 h1{
+  color: lightcoral;
+}
+.box2 h1{
+  color: lightcoral;
+}
+p{
+  font-size: large;
+}
+.our{
+  text-align: center;
+}
+.ourservices{
+  background-color: rgba(234, 113, 113, 0.2);
+  color: rgb(247, 69, 69);
+  padding: 10px 0px;
+  font-weight: 200px;
+  margin: 0px auto;
+}
+.headi{
+  text-align: center;
+}
+.heading{
+  font-size: 4em;
+  font-weight: 900;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.dav{
+  background-color: rgb(0, 0, 0,.1);
+  transition: .7s;
+}
+.dav:hover{
+  background-color:rgb(0, 0, 0,.4) ;
+}
+.multanimiti {
+  padding: 40px 60px;
+}
+.skintretment {
+ padding-top: 400px;
+ text-align: center;
+
+
+}
+.skintretment button{
+  background-color: lightsalmon;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  border: none;
+}
+.hairtretment{
+  text-align: center;
+  padding-top: 250px;
+}
+.hairtretment button{
+  background-color: lightsalmon;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  border: none;
+}
+button:hover{
+  background-color:rgb(252, 123, 72) ;
+}
+.back{
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(/b.img/spa.jpeg);
+}
+caption{
+  font-size: 40px;
+  color: white;
+}
+form{
+  color: rgb(199, 185, 185);
+  background-color: rgb(0, 0, 0,.5);
+  padding: 30px 30px;
+  font-size: 1.5em;
+  height: 450px;
+margin: 0px auto;
+
+}
+
+select{
+  /* text-align: center; */
+  height: 40px;
+}
+.date{
+  height: 40px;
+}
+.Appointmentbutton{
+  text-align: center;
+  background-color: lightsalmon;
+  color: white;
+  height: 40px;
+}
+.ourteam{
+  background-color: rgba(234, 113, 113, 0.2);
+  color: rgb(247, 69, 69);
+  padding: 10px 0px;
+  font-weight: 200px;
+  margin: 30px auto;
+}
+.heading1{
+  font-size: 4em;
+  font-weight: 900;
+  text-align: center;
+ 
+}
+.teamlay{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 40px 0px;
+}
+.team1{
+/* position: relative; */
+  height: 340px;
+  overflow: hidden;
+  /* border: 2px red solid; */
+}
+
+.box{
+  transform: translateY(-100px);
+  text-align: center;
+ 
+  background-color: lightsalmon;
+  padding-top: 10px;
+  overflow: hidden;
+}
+.symbol{
+  background-color: black;
+color: white;
+  height: 90px;
+padding-top: 22px;
+text-align: center;
+font-size: xx-large;
+transform: translateY(-90px);
+opacity: 0;
+transition: .5s;
+
+
+}
+.img1{
+  overflow:hidden ;
+}
+.symbol i:hover {
+  color: lightsalmon;
+}
+.team1:hover .transform{
+
+  transform: translateY(80px);
+}
+.team1:hover .symbol{
+  opacity: 1;
+}
+
+.transform{
+  transition: .7s;
+}
+.imgset{
+  padding:40px 60px 40px 80px;
+}
+.testimonial{
+  color: white;
+  background-color: rgb(255, 160, 122,.7);
+  text-align: center;
+  margin-top: 150px;
+
+}
+.clintsay{
+  font-weight: 700;
+  font-size: 3em;
+  
+}
+
+.clintname{
+  display: flex;
+
+}
+.clintname h3{
+  padding-left: 40px;
+}
+.summery{
+  padding-top: 40px;
+}
+/* fotter css  */
+.fotter{
+  background-color: black;
+  border-bottom: 1px solid white;
+}
+.phone{
+  padding: 10px 0px;
+}
+.add{
+  padding: 10px 0px;
+}
+.email{
+  padding: 10px 0px;
+}
+.data{
+  padding: 40px 20px 30px 60px;
+  color: white;
+
+
+  
+}
+.symbols{
+  color: lightsalmon;
+  font-size: 3em;
+}
+.data2{
+  color: white;
+  border-left: 1px solid white;
+}
+.anchor{
+  padding-left: 30px;
+  
+}
+.anchor p a{
+  color: white;
+  padding-left: 20px;
+  text-decoration: none;
+}
+.anchor p a:hover{
+  color: lightsalmon;
+}
+.newsettler{
+  padding: 30px 0px 20px 60px;
+  font-size: large;
+  font-weight: 600;
+}
+.inp{
+  padding: 0px 60px 40px 60px;
+}
+.inp button{
+  transform: translateX(-5px);
+  height: 40px ;
+ border: none;
+ background-color: rgb(255, 160, 122,.8);
+}
+.inp button:hover{
+  background-color: rgb(255, 160, 122,1);
+
+}
+.document{
+  background-color: black;
+  color: white;
+}
+.myname{
+  padding: 5px 5px 5px 180px;
+}
+
+/* about us page css */
+.aboutusimg{
+ background-size: 100% 100%;
+ height: 400px;
+ background-repeat: no-repeat;
+ background-image:url(/b.img/Free\ Photo\ _\ Woman\ relaxing\ in\ the\ spa.jpeg);
+ 
+ 
+}
+.aboutusimg h1{
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  font-size: 6em;
+}
+.aboutusimg a{
+  color: white;
+ align-items: center;
+ padding-right: 20px;
+ text-decoration: none;
+
+}
+.aboutusimg a:hover{
+  text-decoration: underline;
+}
+.aboutdata{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  padding-top: 30px;
+  
+}
+.aboutusimg i{
+  padding-right: 20px;
+}
+.backgroungdull{
+  background-color: rgb(0, 0, 0,.5);
+}
+/* blog css */
+.blogdata{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  padding-top: 30px;
+}
+.addimg{
+  padding: 80px 0px 80px 60px;
+}
+.fullpink{
+  background-color:rgb(211, 211, 211);
+  height: 100px;
+}
+h4 i{
+  padding-left: 30px;
+  padding-top: 10px;
+  color: lightsalmon;
+}
+.locat h2{
+margin-top: 20px;
+  margin-left: 30px;
+  padding: 5px 10px 5px 10px;
+}
+.fullpink{
+transform: translate(-100px, 350px);
+}
+/* contact us csss */
+.map{
+  padding: 50px 40px 50px 50px;
+}
+.formname{
+  background-color: rgb(230, 175, 153);
+}
+.formname h4{
+  margin-top: 30px;
+  transform: translateX(40px);
+  
+
+}
+.formname h1{
+  transform: translateX(30px);
+}
+.formname input{
+  height: 40px;
+  border: none;
+}
+.formname textarea{
+  border: none;
+  overflow: scroll;
+  height: 50px;
+}
+
+.sendmsg button{
+
+  background-color: rgb(255, 160, 122,.5);
+}
+.sendmsg button:hover{
+  background-color:rgb(255, 160, 122,1) ;
+}
+.formname .row{
+  padding: 10px 40px 10px 40px;
+}
+.formname{
+  height: 380px;
+  transform: translate(-100px,80px);
+  overflow: hidden;
+}
+.nav3 option{
+  position: absolute;
+  transform: translate(10px ,30px);
+ background-color: white;
+}
+/* navbar services part */
+.hover{
+  position: relative;
+}
+.abosulute{
+  position: absolute;
+}
+
+
+
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #1e2125;
+  background-color: #e9ecef;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #fea116;
+}
+
+.dropdown-item.disabled,
+.dropdown-item:disabled {
+  color: #adb5bd;
+  pointer-events: none;
+  background-color: transparent;
+}
+.dropdown-item-text {
+  display: block;
+  padding: 0.25rem 1rem;
+  color: #212529;
+}

@@ -1,0 +1,54 @@
+/* Center the entire login container */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f4;
+}
+
+/* Style the login form box */
+.login-form {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Input fields */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Button */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Error message */
+.error {
+ color: red;
+  margin-top: 10px;
+}

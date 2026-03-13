@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+
+  .col-s-1 {
+    width: 8.33%;
+  }
+  .col-s-2 {
+    width: 16.66%;
+  }
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-4 {
+    width: 33.33%;
+  }
+  .col-s-5 {
+    width: 41.66%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-7 {
+    width: 58.33%;
+  }
+  .col-s-8 {
+    width: 66.66%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-10 {
+    width: 83.33%;
+  }
+  .col-s-11 {
+    width: 91.66%;
+  }
+  .col-s-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+.navbar {
+  height: auto;
+  display: flex;
+  align-items: center;
+  background-color: lightgray;
+
+  position: fixed;
+}
+.logo {
+  /* padding-top: 5px; */
+
+  font-size: xx-large;
+}
+.data {
+  /* display: flex; */
+  /* display: block; */
+  font-size: large;
+}
+.about a {
+  text-decoration: none;
+  color: black;
+}
+.menu a {
+  text-decoration: none;
+  color: black;
+}
+.contact a {
+  text-decoration: none;
+  color: black;
+}
+.backgroung {
+  background-image: url(/img/Burger\ Restaurant\ Food\ Background\,\ Hamburger\,\ Restaurant\,\ Food\ Background\ Image\ And\ Wallpaper\ for\ Free\ Download.jpeg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 600px;
+}
+.letter {
+  font-weight: 400;
+  font-size: 1.5em;
+  padding-top: 550px;
+  padding-left: 20px;
+  color: aliceblue;
+}
+.aboutimg img {
+  padding: 80px 0px 80px 120px;
+  height: 700px;
+  /* position: sticky; */
+}
+.aboutsummery h1 {
+  text-align: center;
+  padding-top: 100px;
+  font-weight: 100;
+}
+.h4 {
+  font-weight: 100;
+  text-align: center;
+  letter-spacing: 5px;
+}
+h3 {
+  height: 40px;
+}
+.aboutsummery p {
+  padding: 20px 50px 20px 50px;
+}
+.blur {
+  color: lightgray;
+}
+.ourmenuimg img {
+  padding: 40px 100px 40px 20px;
+  height: 700px;
+}
+.ourmenu h1 {
+  text-align: center;
+}
+.ourmenu h3 {
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+.ourmenu h5 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-weight: 300;
+}
+.ourmenu {
+  padding: 0px 30px 0px 100px;
+}
+.contactinfo {
+  padding: 50px 130px 50px 130px;
+}
+.contactinfo h1,
+h3,
+p,
+input {
+  padding: 10px 0px 10px 0px;
+}
+input {
+  margin-top: 50px;
+  padding-top: 20px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.button button {
+  margin-top: 30px;
+  padding: 10px 5px 10px 5px;
+  border: none;
+  background-color: rgb(197, 228, 255);
+}
+.button button:hover {
+  background-color: rgb(160, 209, 252);
+}
+.fotter {
+  background-color: blanchedalmond;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+a:hover {
+  color: rgb(237, 142, 0);
+}
+a {
+  text-decoration: none;
+  color: darkolivegreen;
+}

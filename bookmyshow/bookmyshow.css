@@ -1,0 +1,108 @@
+.col-4 {
+    border: 2px solid black;
+  }
+  .col-1 img,
+  h6,
+  h3,
+  h1 {
+    text-align: center;
+  }
+  .col-1 img {
+    margin-left: 7px;
+  }
+  .serch-body{
+    /* margin: 0px 100px; */
+    margin-left:10px ;
+  }
+  .list-part ul li a{
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+.list-part ul{
+  color: orangered;
+}
+.list-part ul li{
+  list-style: none;
+}
+.list-part ul li a:hover{
+  color: rgb(207, 41, 41);
+}
+.back{
+  background-color: #2B3149;
+}
+.back h2, h6{
+  text-align: left;
+  color: white;
+}
+.back  .container h4{
+  background-color: #2B3149;
+  color: white;
+}
+.dark{
+  background-color: #2B3149;
+  color: white;
+}
+.container .card1{
+  background-color: #2B3149;
+}
+.footer{
+  background-color: #333338;
+  color: rgba(255, 255, 255, 0.63);
+}
+.help  h6{
+  text-align: center;
+  padding: 10px;
+  
+}
+.help{
+  background-color: #404043;
+}
+.icon{
+  font-size: 60px;
+}
+.line-1{
+color: white;
+}
+.lin-2 i ,h6{
+  color: rgba(255, 255, 255, 0.493);
+}
+.lin-2 :hover{
+  color: white;
+}
+.lin-3 p,span{
+  padding-right: 5px;
+}
+.lin-3 {
+  padding: 10px 0px;
+}
+.lin-3 p:hover{
+  color: white;
+}
+.border{
+  height: 1px;
+ 
+  
+}
+.lin-4{
+  align-items: center;
+}
+.icons-s{
+  color: rgba(255, 255, 255, 0.452);
+  font-size: xx-large;
+  text-align: center;
+ padding: 20px;
+}
+.icons-s i{
+  margin: 0px 5px;
+}
+.icons-s i:hover{
+  color: white;
+}
+.footer1{
+  padding: 20px 0px;
+
+}
+.city{
+  color: red;
+}

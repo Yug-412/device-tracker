@@ -1,0 +1,137 @@
+{
+  "admin": [
+    {
+      "id": "1",
+      "email": "yug@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "emai": "prem@gmail.com",
+      "password": 4321
+    }
+  ],
+  "properties": [
+    {
+      "id": "1",
+      "image": "assets/images/property-01.jpg",
+      "category": "Luxury Villa",
+      "price": "$2,264,000",
+      "title": "18 Old Street Miami, OR 97219",
+      "bedrooms": 8,
+      "bathrooms": 8,
+      "area": "545m2",
+      "floor": 3,
+      "parking": "6 spots"
+    },
+    {
+      "id": "2",
+      "image": "assets/images/property-02.jpg",
+      "category": "Luxury Villa",
+      "price": "$1,180,000",
+      "title": "54 New Street Florida, OR 27001",
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "area": "450m2",
+      "floor": 3,
+      "parking": "8 spots"
+    },
+    {
+      "id": "3",
+      "image": "assets/images/property-03.jpg",
+      "category": "Modern Apartment",
+      "price": "$950,000",
+      "title": "21 Grand Ave, New York, NY 10001",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": "350m2",
+      "floor": 6,
+      "parking": "2 spots"
+    },
+    {
+      "id": "4",
+      "image": "assets/images/property-04.jpg",
+      "category": "Family House",
+      "price": "$640,000",
+      "title": "12 Lakeview Dr, Austin, TX 73301",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": "300m2",
+      "floor": 2,
+      "parking": "4 spots"
+    },
+    {
+      "id": "5",
+      "image": "assets/images/property-05.jpg",
+      "category": "Beach Villa",
+      "price": "$3,000,000",
+      "title": "88 Ocean Blvd, Malibu, CA 90265",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "area": "600m2",
+      "floor": 3,
+      "parking": "3 spots"
+    },
+    {
+      "id": "6",
+      "image": "assets/images/property-06.jpg",
+      "category": "City Apartment",
+      "price": "$720,000",
+      "title": "45 Downtown St, Chicago, IL 60601",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": "220m2",
+      "floor": 10,
+      "parking": "1 spot"
+    }
+  ],
+  "properties_detail": [
+     {
+      "id": "1",
+      "category": "Apartment",
+      "space": "540 m2",
+      "floor": "3",
+      "rooms": "8",
+      "parking": "Yes",
+      "payment": "Bank",
+      "image": "assets/images/deal-01.jpg",
+      "title": "All Info About Apartment",
+      "description": "Lorem ipsum dolor sit amet..."
+    },
+    {
+      "id": "2",
+      "category": "Villa",
+      "space": "250 m2",
+      "floor": "26th",
+      "rooms": "5",
+      "parking": "Yes",
+      "payment": "Bank",
+      "image": "assets/images/deal-02.jpg",
+      "title": "Detail Info About New Villa",
+      "description": "Lorem ipsum dolor sit amet..."
+    },
+    {
+      "id": "3",
+      "category": "Penthouse",
+      "space": "320 m2",
+      "floor": "34th",
+      "rooms": "6",
+      "parking": "Yes",
+      "payment": "Bank",
+      "image": "assets/images/deal-03.jpg",
+      "title": "Extra Info About Penthouse",
+      "description": "Lorem ipsum dolor sit amet..."
+    }
+  ],
+  "contacts": [
+    {
+      "id": "7786",
+      "name": "abhi patel",
+      "email": "186330307547.yug.patel@gmail.com",
+      "sub": "patel",
+      "desc": "gyyy"
+    }
+  ]
+}

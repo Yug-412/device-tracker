@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookMyshow</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="https://getlogo.net/wp-content/uploads/2020/04/bookmyshow-logo-vector.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/bookmyshow.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img style="height: 30px" src="img/logo.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- all cities  div  -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex col-8">
+            <div class="input-group col-5">
+              <span class="input-group-text" id="inputGroup-sizing-default"
+                >⌕</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Serch for movie,events and plays"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              />
+              <!-- Button trigger modal -->
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <div
+                      style="height: 150px"
+                      class="modal-header col-12 bg-light"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-lg"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        &lt;
+                      </button>
+
+                      <input
+                        style="width: 70%"
+                        type="text"
+                        class="form-control ms-auto bg-light"
+                        placeholder="Serch for movie,events and plays"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="">
+                        <ul class="nav " id="myTab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active bg-light text-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">MOVIES</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link bg-dark text-white" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">CINEMAS</button>
+                          </li>
+                          <div class="all-buttons ms-auto">
+                            <span>Filter</span>
+                            <button class="btn btn-dark rounded-5">hindi</button>
+                            <button class="btn btn-dark rounded-5">
+                              English
+                            </button>
+                            <button class="btn btn-dark rounded-5">
+                              Gujrati
+                            </button>
+                            <button class="btn btn-dark rounded-5">
+                              Malayalam
+                            </button>
+                            <button class="btn btn-dark rounded-5">Telugu</button>
+                            <button class="btn btn-dark rounded-5">
+                              +1 more
+                            </button>
+                          </div>
+                        </ul>
+                        
+                        <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                            <div class="d-flex p-3 col-12">
+                              <div class="list-part col-3">
+                                <ul>
+                                  Hindi
+                                  <li><a href="">Deva€</a></li>
+                                  <li><a href="">Game changer ❤️</a></li>
+                                  <li><a href=""> Emergency ❤️</a></li>
+                                  <li><a href="">Game changer</a></li>
+                                  <li><a href="">Jab tak he jan</a></li>
+      
+                                  <li><a href="">Muffasa</a></li>
+                                  <li><a href="">Main tera hero ❤️</a></li>
+                                  <li><a href="">Tu juthi me makar</a></li>
+                                  <li><a href="">Yeh jawani he dewani ❤️</a></li>
+                                  <li><a href="">Marco</a></li>
+                                  <li><a href="">hero</a></li>
+                                </ul>
+                              </div>
+                              <div class="list-part col-3">
+                                <ul>
+                                  English
+                                  <li><a href="">Comapnion</a></li>
+                                  <li><a href="">intersteller ❤️ 85%</a></li>
+                                  <li><a href=""> Sonic the hedghog 3 ❤️</a></li>
+                                  <li>Gujrati</li>
+                                  <li><a href="">Chal jevi laiye 93%</a></li>
+                                  <li><a href="">Fati ne ? ❤️ 85%</a></li>
+                                  <li><a href=""> Hahacar 87%</a></li>
+                                  <li><a href=""> Mlaik ni vato 67%</a></li>
+                                  <li><a href=""> Kashi raghav 78%</a></li>
+                                  <li><a href=""> Taro thyo</a></li>
+                                  <li><a href=""> Ubharo 80%</a></li>
+                                  <li><a href=""> Mom tane nai samajay❤️ 90%</a></li>
+                                </ul>
+                              </div>
+                              <div class="list-part col-3">
+                                <ul>
+                                  Tamil
+                                  <li><a href="">Kudambastan 👨‍👧 80%</a></li>
+                                  <li><a href="">intersteller ❤️ 85%</a></li>
+                                  <li><a href=""> Sonic the hedghog 3 ❤️</a></li>
+                                  <li>Malayalam</li>
+                                  <li><a href="">poolman 93%</a></li>
+                                  <li><a href="">taranisu ❤️ 85%</a></li>
+                                  <li><a href="">tukathai 87%</a></li>
+                                  <li><a href=""> palost 67%</a></li>
+                                </ul>
+                              </div>
+                              <div class="list-part col-3">
+                                <ul>
+                                  Punjabi
+                                  <li><a href="">Kudambastan 👨‍👧 80%</a></li>
+                                  <li><a href="">intersteller ❤️ 85%</a></li>
+                                  <li><a href=""> Sonic the hedghog 3 ❤️</a></li>
+                                  <li>Japanis</li>
+                                  <li><a href="">poolman 93%</a></li>
+                                  <li><a href="">taranisu ❤️ 85%</a></li>
+                                  <li><a href="">tukathai 87%</a></li>
+                                  <li><a href=""> palost 67%</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"> <div class="d-flex p-3 col-12">
+                            <div class="list-part col-3">
+                              <ul>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                               <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                              </ul>
+                            </div>
+                            <div class="list-part col-3">
+                              <ul>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                              </ul>
+                            </div>
+                            <div class="list-part col-3">
+                              <ul>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>                             
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li> </ul>
+                            </div>
+                            <div class="list-part col-3">
+                              <ul>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                                <li><a href="">PVR: Acropolis, Ahmedabad</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        
+                        
+                      </div>
+
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="modal fade"
+              id="exampleModalToggle"
+              aria-hidden="true"
+              aria-labelledby="exampleModalToggleLabel"
+              tabindex="-1"
+            >
+              <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="input-group">
+                      <span
+                        class="input-group-text"
+                        id="inputGroup-sizing-default"
+                        >⌕</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Serch for your city"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                      />
+                    </div>
+                    <button
+                      style="align-self: center"
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="text-align: center">Popular cities</p>
+
+                    <div
+                      class="modal-dialog-centered d-flex; justify-content-around"
+                    >
+                      <div
+                        class="col-1 mx-2 text-align:center justify-self-center;"
+                      >
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/mumbai.png"
+                          alt=""
+                        />
+                        <h6 class="city">Mumbai</h6>
+                      </div>
+
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/ncr.png"
+                          alt=""
+                        />
+                        <h6 class="city">Delhi</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/bang.png"
+                          alt=""
+                        />
+                        <h6 class="city">Banglor</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/hyd-selected.png"
+                          alt=""
+                        />
+                        <h6 class="city">Hyderabad</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/ahd.png"
+                          alt=""
+                        />
+                        <h6 class="city">Ahemdabad</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/chd.png"
+                          alt=""
+                        />
+                        <h6 class="city">Changhigarh</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/chen.png"
+                          alt=""
+                        />
+                        <h6 class="city">chennai</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/pune.png"
+                          alt=""
+                        />
+                        <h6 class="city">Pune</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/kolk.png"
+                          alt=""
+                        />
+                        <h6 class="city">Kalkata</h6>
+                      </div>
+                      <div class="col-1 mx-2">
+                        <img
+                          src="https://in.bmscdn.com/m6/images/common-modules/regions/koch.png"
+                          alt=""
+                        />
+                        <h6 class="city">Kochi</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer col-12">
+                    <a class="text-align:center;" href="">All cities</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="exampleModalToggle2"
+              aria-hidden="true"
+              aria-labelledby="exampleModalToggleLabel2"
+              tabindex="-1"
+            ></div>
+            <div class="col-1"></div>
+            <a
+              class="btn dropdown-toggle bg-light mx-2 col-2"
+              data-bs-toggle="modal"
+              href="#exampleModalToggle"
+              role="button"
+              >Ahemdabad....</a
+            >
+            <!-- open model  in the sign up -->
+
+            <div
+              class="modal fade mx-2"
+              id="exampleModalToggle1"
+              aria-hidden="true"
+              aria-labelledby="exampleModalToggleLabel2"
+              tabindex="-1"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">
+                      Get started
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body col-12">
+                    <div class="container">
+                      <button
+                        class="text-align:center col-12 mb-3 ;"
+                        style="border-radius: 10px"
+                      >
+                        <img
+                          src="https://img.icons8.com/?size=48&id=V5cGWnc9R4xj&format=png"
+                          alt=""
+                        />
+                        <span style="margin: 100px"> Continue with google</span>
+                      </button>
+                      <button
+                        class="col-12 mb-3 p-1"
+                        style="border-radius: 10px"
+                      >
+                        <img
+                          style="height: 40px; width: 40px"
+                          src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png"
+                          alt=""
+                        />
+                        <span style="margin: 100px"> Continue with E-mail</span>
+                      </button>
+                      <button
+                        class="col-12 mb-3 p-1"
+                        style="border-radius: 10px"
+                      >
+                        <img
+                          style="height: 40px; width: 40px"
+                          src="https://cdn-icons-png.flaticon.com/128/0/747.png"
+                          alt=""
+                        />
+                        <span style="margin: 100px"> Continue with Apple</span>
+                      </button>
+                      <h1>or</h1>
+                    </div>
+                    <div style="text-align: center">
+                      <label class="text-align:center;" for="">
+                        <img
+                          style="height: 40px; width: 40px"
+                          src="https://cdn-icons-png.flaticon.com/128/321/321238.png"
+                          alt=""
+                        />+91</label
+                      ><input
+                        style="border: none; border-bottom: 1px solid"
+                        type=""
+                        placeholder="enter withe a mobile no"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer"></div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="btn btn-danger col-2"
+              data-bs-toggle="modal"
+              href="#exampleModalToggle1"
+              role="button"
+              >Sign up</a
+            >
+
+            <img
+              class="mx-3"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+              src="https://img.icons8.com/?size=32&id=16247&format=png"
+            />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">
+          Offcanvas right
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">...</div>
+    </div>
+    <div class="body-portion">
+      <div
+        id="carouselExample"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://assets-in.bmscdn.com/promotions/cms/creatives/1726036566435_playcardnewweb.jpg"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://assets-in.bmscdn.com/promotions/cms/creatives/1738399107090_webshowcase1240x300.jpg"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://assets-in.bmscdn.com/promotions/cms/creatives/1738388157210_aazamweb.jpg"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="my-3 container">Recommended Movies</h2>
+    </div>
+    <div id="carouselExampleIndicators1" class="container carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators1"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators1"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny41LzEwICA3LjhLIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00374104-qgsmfbnanb-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">Deva</h4>
+              <p class="card-text">Action/Thriller</p>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICAxMDcuNUsgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00416394-wujwwhfmdr-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Marco</h4>
+              <p class="card-text">Action/Thriller</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4xLzEwICAySyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00420660-klqhuapgqz-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Umbro</h4>
+              <p class="card-text">comedy/Drama</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICA0MC4ySyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00371539-yqjkjctnet-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Sky Force</h4>
+              <p class="card-text">Action/Thriller/Historical</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMjM3IFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00428340-hzwurwyayc-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Fati ne ?</h4>
+              <p class="card-text">Comedy/Horror</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="cards d-flex justify-content-around ">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjI2LjVLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00408788-guzcerjhur-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">Vidhyampunchil</h4>
+              <p class="card-text">Action/Thriller</p>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NC43SyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00427632-nqybkaxdnv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">LoveYaPa</h4>
+              <p class="card-text">Action/Thriller</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzguN0sgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00343879-ktzwxxlmas-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Baddas ravi kumar</h4>
+              <p class="card-text">comedy/Drama</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-ODcgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00429934-ukhgrfnyhe-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Pashvasya</h4>
+              <p class="card-text">Action/Thriller/Historical</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTcxLjFLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00384012-lkcnqrjgfl-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Thandel</h4>
+              <p class="card-text">Comedy/Horror</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators1"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators1"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div style="text-align: center" class="container col-12">
+      <img
+        class="col-12 my-5"
+        src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png"
+        alt=""
+      />
+    </div>
+
+    <div class="container">
+      <h2 class="my-3 container">The Best Of Live Events</h2>
+    </div>
+    <div class="container d-flex col-12 my-4">
+      <div class="mx-3">
+        <img
+          style="border-radius: 5%"
+          class="col-10"
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:l-text,ie-MjArIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-64,lx-48,ly-320,tg-b,pa-8_0_0_0,l-end:w-300/workshop-and-more-web-collection-202211140440.png"
+          alt=""
+        />
+      </div>
+      <div class="mx-3">
+        <img
+          style="border-radius: 5%"
+          class="col-10"
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:l-text,ie-NCBFdmVudHM%3D,co-FFFFFF,ff-Roboto,fs-64,lx-48,ly-320,tg-b,pa-8_0_0_0,l-end:w-300/bmshp-desktop-kids-collection-202404190106.png"
+          alt=""
+        />
+      </div>
+      <div class="mx-3">
+        <img
+          style="border-radius: 5%"
+          class="col-10"
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:l-text,ie-NTArIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-64,lx-48,ly-320,tg-b,pa-8_0_0_0,l-end:w-300/comedy-shows-collection-202211140440.png"
+          alt=""
+        />
+      </div>
+      <div class="mx-3">
+        <img
+          style="border-radius: 5%"
+          class="col-10"
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:l-text,ie-MTUrIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-64,lx-48,ly-320,tg-b,pa-8_0_0_0,l-end:w-300/music-shows-collection-202211140440.png"
+          alt=""
+        />
+      </div>
+      <div class="mx-3">
+        <img
+          style="border-radius: 5%"
+          class="col-10"
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:l-text,ie-NCBFdmVudHM%3D,co-FFFFFF,ff-Roboto,fs-64,lx-48,ly-320,tg-b,pa-8_0_0_0,l-end:w-300/upskill-collection-202211140440.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="back my-3">
+      <div class="container">
+        <div class="my-1 mx-3 col-12">
+          <img
+            class="col-12"
+            src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/premiere-banner-web-collection-202208191200.png"
+            alt=""
+          />
+        </div>
+        <h2 class="mx-3">Premires</h2>
+        <h6 class="mx-3">Brand New Realese Every Friday</h6>
+        <div id="carouselExampleIndicators3" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="cards d-flex justify-content-around">
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00430500-uvlzyxhrru-portrait.jpg"
+                    alt="Card image"
+                  />
+                  <h4 class="card-title">Skins</h4>
+                  <p class="card-text dark">Action/Thriller</p>
+                </div>
+
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00430499-rpsefqnawt-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Marco</h4>
+                  <p class="dark">Action/Thriller</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00422430-bxbfrcgkdj-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Umbro</h4>
+                  <p class="card-text dark">comedy/Drama</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00429065-ndfzbypquv-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Sniper last stand</h4>
+                  <p class="card-text dark">Action/Thriller/Historical</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00411534-dffmdbaxpd-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Jurasic world</h4>
+                  <p class="card-text dark">Comedy/Horror</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="cards d-flex justify-content-around my-2">
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00346405-wxudwmfugw-portrait.jpg"
+                    alt="Card image"
+                  />
+                  <h4 class="card-title">Losef</h4>
+                  <p class="card-text dark">Action/Thriller</p>
+                </div>
+
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_exclusive_v1.png,t-false,lfo-bottom_left,l-end/et00421038-gexzclbqbv-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">97 Minutes</h4>
+                  <p class="card-text dark">Action/Thriller</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00415765-yqfxrxarrl-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Gulabi</h4>
+                  <p class="card-text dark">comedy/Drama</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00430499-rpsefqnawt-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Pashvasya</h4>
+                  <p class="card-text dark">Action/Thriller/Historical</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+                <div class="card1" style="border: none; width: 200px">
+                  <img
+                    class="card-img-top"
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00430499-rpsefqnawt-portrait.jpg"
+                    alt="Card image"
+                  />
+
+                  <h4 class="card-title">Thandel</h4>
+                  <p class="card-text dark">Comedy/Horror</p>
+                  <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators3"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators3"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="mx-2 my-2">Your Music Studio</h2>
+    </div>
+    <!-- 2nd corasol -->
+
+    <div id="carouselExampleIndicators2" class="container carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators2"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators2"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCA4IEZlYiBvbndhcmRz,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00420853-dxdyvsnrgn-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">Mnahar uddas live in concert</h4>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAyMiBNYXI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431579-tclkgctjwk-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Aditya Gathvi live in concert</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAxNSBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00428270-gvqfuaadtf-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Arman malik live in concert</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAyOSBNYXI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00421828-fhkeybefek-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Sonu Nigam live in concert</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCA5IEZlYg%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00428339-cdskudqxra-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Javed ali live in concert</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjI2LjVLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00408788-guzcerjhur-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">Vidhyampunchil</h4>
+              <p class="card-text">Action/Thriller</p>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NC43SyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00427632-nqybkaxdnv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">LoveYaPa</h4>
+              <p class="card-text">Action/Thriller</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzguN0sgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00343879-ktzwxxlmas-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Baddas ravi kumar</h4>
+              <p class="card-text">comedy/Drama</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-ODcgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00429934-ukhgrfnyhe-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Pashvasya</h4>
+              <p class="card-text">Action/Thriller/Historical</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTcxLjFLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00384012-lkcnqrjgfl-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Thandel</h4>
+              <p class="card-text">Comedy/Horror</p>
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators2"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators2"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container my-3">
+      <h2 class="mx-2">Outdoor Events</h2>
+    </div>
+    <div id="carouselExampleIndicators4" class="container carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators4"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators4"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAyMSBGZWIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00420708-ygghsrultp-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">The lavari show</h4>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAyNiBBcHIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00376688-gquxppcmjr-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Hamare Ram</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-V2VkLCAxMiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431076-xlvdnrugns-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ind vs Aus</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAxNCBNYXIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00430724-zketbcbjxf-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ahemdabad Spring Fest</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAyMSBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00430412-ukkexhpkwn-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Main Pal do Pal Ka Sayar Hoon</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAyMSBGZWIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00420708-ygghsrultp-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">The Lvari Show :Gujrat</h4>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAyNiBBcHIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00376688-gquxppcmjr-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Hamare Ram</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-V2VkLCAxMiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431076-xlvdnrugns-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Eng VS Ind :Tour of india</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAxNCBNYXIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00430724-zketbcbjxf-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ahemdabad Spring Fest 2025</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAyMSBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00430412-ukkexhpkwn-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Main Pal Do Pal La</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators4"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators4"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container my-3">
+      <h2 class="mx-2">Top Games & Sports Events</h2>
+    </div>
+    <div id="carouselExampleIndicators5" class="container carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators5"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators5"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-V2VkLCAxMiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431076-xlvdnrugns-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">The lavari show</h4>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-V2VkLCAxMiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431076-xlvdnrugns-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Hamare Ram</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAxNCBGZWIgb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@bundle-icon-shadow-4x.png,lx-15,ly-15,w-50,l-end/et00431268-qltszhzxmu-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ind vs Aus</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCAxNSBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431138-dwzvgseytf-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ahemdabad Spring Fest</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-TW9uLCAxNyBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431140-gsypjmjpvm-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Main Pal do Pal Ka Sayar Hoon</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="cards d-flex justify-content-around">
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAxNiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431139-dbfawznfxv-portrait.jpg"
+                alt="Card image"
+              />
+              <h4 class="card-title">The Lvari Show :Gujrat</h4>
+            </div>
+
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAxNiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431139-dbfawznfxv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Hamare Ram</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAxNiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431139-dbfawznfxv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Eng VS Ind :Tour of india</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAxNiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431139-dbfawznfxv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Ahemdabad Spring Fest 2025</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+            <div class="card" style="border: none; width: 200px">
+              <img
+                class="card-img-top"
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAxNiBGZWI%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00431139-dbfawznfxv-portrait.jpg"
+                alt="Card image"
+              />
+
+              <h4 class="card-title">Main Pal Do Pal La</h4>
+
+              <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators5"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators5"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </body>
+  <footer>
+    <div class="footer">
+      <div class="container footer1">
+        <div
+          style="height: 50px; align-items: center"
+          class="d-flex mx-1 col-12 line-1"
+        >
+          <img
+            class="col-0"
+            src="https://in.bmscdn.com/webin/common/icons/hut.svg"
+            alt=""
+          />
+          <h6 style="font-weight: 700; text-align: center" class="col-2 my-2">
+            List Your Show
+          </h6>
+          <yug class="my-2 col-8">
+            Get a show,events,activity or a greate experience? Patner with us &
+            get listed on Boomyshow
+          </yug>
+
+          <button class="btn btn-danger col-2">Contact Today!</button>
+        </div>
+      </div>
+      <div style="padding-top: 15px" class="help d-flex">
+        <div
+          style="text-align: center; border: none"
+          class="col-4 lin-2 container"
+        >
+          <i class="fa fa-user-md icon" aria-hidden="true"></i>
+          <h6>24/7 CUSTOMER CARE</h6>
+        </div>
+
+        <div
+          style="text-align: center; border: none"
+          class="col-4 lin-2 container"
+        >
+          <i class="fa fa-suitcase icon" aria-hidden="true"></i>
+          <h6>RESEND BOOKING CONFIRMATION</h6>
+        </div>
+
+        <div
+          style="text-align: center; border: none"
+          class="col-4 lin-2 container"
+        >
+          <i class="fa fa-briefcase icon" aria-hidden="true"></i>
+          <h6>SUBSCRIBE TO THE NEW STELLER</h6>
+        </div>
+      </div>
+
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+      </div>
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+      </div>
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+      </div>
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+      </div>
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+      </div>
+      <div class="container lin-3">
+        <h6>MOVIES NOE SHOWING IN AHEMDABAD</h6>
+        <div class="d-flex">
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>Sanam teri kasam</p>
+          <span>|</span>
+          <p>LoveYapa</p>
+          <span>|</span>
+          <p>Baddas Ravi Kumar</p>
+          <span>|</span>
+          <p>Deva</p>
+          <span>|</span>
+          <p>Umbro</p>
+          <span>|</span>
+          <p>Sky Force</p>
+          <span>|</span>
+          <p>Fati Ne ?</p>
+        </div>
+        <div class="col-12 d-flex lin-4">
+          <div style="color: rgba(255, 255, 255, 0)" class="col-5 border"></div>
+          <div style="text-align: center" class="col-2">
+            <img
+              class="col-10"
+              src="https://in.bmscdn.com/webin/common/icons/logo.svg"
+              alt=""
+            />
+          </div>
+          <div class="col-5 border"></div>
+        </div>
+
+        <div class="icons-s">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-square-instagram"></i>
+          <i class="fa-brands fa-square-xing"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-square-youtube"></i>
+        </div>
+        <div class="p-3">
+          <h6 style="text-align: center;">
+            The content and images used on this site are copyright protected and
+            copyrights vests with the respective owners. <br> The usage of the
+            content and images on this website is intended to promote the works
+            and no endorsement of the artist shall be implied. <br> Unauthorized use
+            is prohibited and punishable by law.
+          </h6>
+          <h3>
+            Devlop By ..........
+            <a
+              style="text-decoration: none; color: rgb(131, 220, 231)"
+              href="https://in.bookmyshow.com/explore/home/ahmedabad"
+              >YUG</a
+            >
+          </h3>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
