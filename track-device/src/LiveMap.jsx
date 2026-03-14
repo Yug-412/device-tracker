@@ -1,19 +1,12 @@
-import { MapContainer, TileLayer, Marker, Polyline, Popup } from "react-leaflet"
+import { MapContainer,TileLayer,Marker,Polyline,Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
-import L from "leaflet"
-
-const deviceIcon = new L.Icon({
- iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
- iconSize: [35,35],
- iconAnchor: [17,35]
-})
 
 function LiveMap({devices,history}){
 
  const deviceArray = devices ? Object.values(devices) : []
 
  const center = deviceArray.length
-  ? [deviceArray[0].latitude, deviceArray[0].longitude]
+  ? [deviceArray[0].latitude,deviceArray[0].longitude]
   : [22.30,72.60]
 
  return(
@@ -21,30 +14,27 @@ function LiveMap({devices,history}){
  <MapContainer
   center={center}
   zoom={13}
-  style={{height:"500px",width:"100%"}}
+  style={{height:"500px"}}
  >
 
   <TileLayer
    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
 
-  {/* Device markers */}
+  {devices && Object.keys(devices).map(deviceID=>{
 
-  {devices && Object.keys(devices).map(id=>{
-
-   const d = devices[id]
+   const d = devices[deviceID]
 
    return(
 
     <Marker
-     key={id}
+     key={deviceID}
      position={[d.latitude,d.longitude]}
-     icon={deviceIcon}
     >
 
      <Popup>
 
-      Device: {id} <br/>
+      Device: {deviceID} <br/>
       Lat: {d.latitude} <br/>
       Lon: {d.longitude}
 
@@ -56,13 +46,11 @@ function LiveMap({devices,history}){
 
   })}
 
-  {/* Movement path */}
-
   {history && Object.keys(history).map(deviceID=>{
 
-   const coords = Object.values(history[deviceID]).map(point=>[
-    point.latitude,
-    point.longitude
+   const coords = Object.values(history[deviceID]).map(p=>[
+    p.latitude,
+    p.longitude
    ])
 
    return(

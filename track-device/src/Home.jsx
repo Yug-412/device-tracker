@@ -1,88 +1,55 @@
-import { useState } from "react";
-import MapView from "./MapView";
+import { useEffect, useState } from "react"
+import { ref, onValue } from "firebase/database"
+import { db } from "./firebase"
+import LiveMap from "./LiveMap"
 
-function Home() {
+function Home(){
 
-  const [link, setLink] = useState("")
-  const [location, setLocation] = useState(null)
+ const [devices,setDevices] = useState({})
+ const [history,setHistory] = useState({})
 
-  const generateLink = () => {
+ useEffect(()=>{
 
-    const id = Math.floor(Math.random() * 100000)
+  const devicesRef = ref(db,"devices")
 
-    const link = `${window.location.origin}/track/${id}`
+  onValue(devicesRef,(snapshot)=>{
 
-    setLink(link)
+   const data = snapshot.val()
 
-  }
+   if(data){
+    setDevices(data)
+   }
 
-  const copyLink = () => {
+  })
 
-    navigator.clipboard.writeText(link)
+  const historyRef = ref(db,"history")
 
-    alert("Link copied!")
+  onValue(historyRef,(snapshot)=>{
 
-  }
+   const data = snapshot.val()
 
-  return (
+   if(data){
+    setHistory(data)
+   }
 
-    <div style={{ textAlign: "center", marginTop: "80px" }}>
+  })
 
-      <h1>📍 Device Tracker Dashboard</h1>
+ },[])
 
-      <button onClick={generateLink}>
-        Generate Tracking Link
-      </button>
+ return(
 
-      <br /><br />
+  <div style={{padding:"20px"}}>
 
-      {link && (
+   <h1>📍 Live Device Tracker</h1>
 
-        <div>
+   <LiveMap
+    devices={devices}
+    history={history}
+   />
 
-          <input
-            value={link}
-            readOnly
-            style={{
-              width: "320px",
-              padding: "10px"
-            }}
-          />
+  </div>
 
-          <button onClick={copyLink} style={{ marginLeft: "10px" }}>
-            Copy Link
-          </button>
-
-        </div>
-
-      )}
-
-      <br /><br />
-
-      <button
-        onClick={() => {
-          fetch("http://localhost:5000/location")
-            .then(res => res.json())
-            .then(data => setLocation(data))
-        }}
-      >
-        Get Latest Location
-      </button>
-
-      {location && (
-        <div>
-
-          <p>Latitude: {location.latitude}</p>
-          <p>Longitude: {location.longitude}</p>
-
-          <MapView location={location} />
-
-        </div>
-      )}
-
-    </div>
-
-  )
+ )
 
 }
 

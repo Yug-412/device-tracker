@@ -2,16 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
+  apiKey: "AIzaSyAnL1bmiBY6te5m7112zCc7VfsZsQV-hm8",
+  authDomain: "device-track-330b1.firebaseapp.com",
+  databaseURL: "https://device-track-330b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "device-track-330b1",
+  storageBucket: "device-track-330b1.appspot.com",
+  messagingSenderId: "790788580454",
+  appId: "1:790788580454:web:640f8c560b7c0f2db1b9a7"
 };
 
 const app = initializeApp(firebaseConfig);
 
-// export database
-export const db = getDatabase(app);np
+export const db = getDatabase(app);
