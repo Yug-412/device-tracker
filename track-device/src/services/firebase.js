@@ -21,7 +21,6 @@ if (!import.meta.env.VITE_FIREBASE_DATABASE_URL) {
   console.warn('VITE_FIREBASE_DATABASE_URL is missing. Using fallback database URL from static config. Add env var to avoid this warning.');
 }
 
-
 export const firebaseApp = {
   config: firebaseConfig,
   services: {

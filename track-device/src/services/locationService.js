@@ -1,16 +1,47 @@
 import { streamDatabasePath } from './firebase';
 
-const toDevices = (value) =>
+const normalizeDevicesValue = (value) =>
   Object.entries(value ?? {}).map(([deviceId, device]) => ({
     deviceId,
     ...device,
   }));
 
-export const subscribeToDevices = (onData, onError) =>
-  streamDatabasePath('devices', (value) => {
-    console.log('subscribeToDevices payload', value);
-    onData(toDevices(value));
+const mergeDeviceLists = (base = {}, fallback = {}) => {
+  const devices = {};
+  Object.entries(base ?? {}).forEach(([id, d]) => {
+    devices[id] = { deviceId: id, ...d };
+  });
+  Object.entries(fallback ?? {}).forEach(([id, d]) => {
+    devices[id] = { deviceId: id, ...devices[id], ...d };
+  });
+  return Object.values(devices);
+};
+
+export const subscribeToDevices = (onData, onError) => {
+  let devicesValue = {};
+  let locationValue = {};
+
+  const emit = () => {
+    const merged = mergeDeviceLists(devicesValue, locationValue);
+    console.log('subscribeToDevices merged', merged);
+    onData(merged);
+  };
+
+  const stopDevices = streamDatabasePath('devices', (value) => {
+    devicesValue = value ?? {};
+    emit();
   }, onError);
+
+  const stopLocation = streamDatabasePath('location', (value) => {
+    locationValue = value ?? {};
+    emit();
+  }, onError);
+
+  return () => {
+    stopDevices();
+    stopLocation();
+  };
+};
 
 export const subscribeToDeviceHistory = (deviceId, onData, onError) => {
   if (!deviceId) {
