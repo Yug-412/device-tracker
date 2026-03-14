@@ -14,9 +14,6 @@ const Dashboard = () => {
       (data) => {
         console.log('Dashboard devices event:', data);
         setDevices(data);
-        if (!selectedDeviceId && data[0]?.deviceId) {
-          setSelectedDeviceId(data[0].deviceId);
-        }
       },
       (err) => {
         console.error('subscribeToDevices error:', err);
@@ -31,7 +28,14 @@ const Dashboard = () => {
     [devices],
   );
 
-  const activeDeviceId = selectedDeviceId || sortedDevices[0]?.deviceId || '';
+  const activeDeviceId = useMemo(() => {
+    const deviceExists = sortedDevices.some((device) => device.deviceId === selectedDeviceId);
+    if (deviceExists) {
+      return selectedDeviceId;
+    }
+
+    return sortedDevices[0]?.deviceId || '';
+  }, [selectedDeviceId, sortedDevices]);
 
   return (
     <main className="dashboard">
@@ -39,6 +43,10 @@ const Dashboard = () => {
         <h1>Device Tracking Platform</h1>
         <p>Live GPS telemetry from authenticated mobile devices.</p>
       </header>
+
+      <div className="debug-strip" style={{ marginBottom: '12px', fontSize: '0.9rem', color: '#334155' }}>
+        devices={sortedDevices.length} activeDeviceId={activeDeviceId || 'none'}
+      </div>
 
       {error ? <div className="error">{error}</div> : null}
       <StatsPanel devices={sortedDevices} />

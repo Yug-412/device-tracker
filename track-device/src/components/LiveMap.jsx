@@ -52,6 +52,14 @@ const LiveMap = ({ devices, selectedDeviceId }) => {
     [devices, selectedDeviceId],
   );
 
+  const routePositions = useMemo(
+    () =>
+      history
+        .filter((point) => Number.isFinite(point.latitude) && Number.isFinite(point.longitude))
+        .map((point) => [point.latitude, point.longitude]),
+    [history],
+  );
+
   return (
     <section className="map-panel">
       <MapContainer center={DEFAULT_CENTER} zoom={3} scrollWheelZoom className="map">
@@ -87,16 +95,15 @@ const LiveMap = ({ devices, selectedDeviceId }) => {
                 Speed: {Math.round(device.speed ?? 0)} km/h
                 <br />
                 Status: {device.online ? 'Online' : 'Offline'}
+                <br />
+                Device ID: {device.deviceId}
               </Popup>
             </Marker>
           ) : null,
         )}
 
-        {selectedDevice && history.length > 1 ? (
-          <Polyline
-            positions={history.map((point) => [point.latitude, point.longitude])}
-            pathOptions={{ color: '#2563eb', weight: 4 }}
-          />
+        {selectedDevice && routePositions.length > 1 ? (
+          <Polyline positions={routePositions} pathOptions={{ color: '#2563eb', weight: 4 }} />
         ) : null}
       </MapContainer>
     </section>
