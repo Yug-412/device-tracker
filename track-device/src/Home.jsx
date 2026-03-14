@@ -13,39 +13,31 @@ function Home(){
   const devicesRef = ref(db,"devices")
 
   onValue(devicesRef,(snapshot)=>{
-
-   const data = snapshot.val()
-
-   if(data){
-    setDevices(data)
-   }
-
+    const data = snapshot.val()
+    console.log("DEVICES:",data)
+    if(data){
+      setDevices(data)
+    }
   })
 
   const historyRef = ref(db,"history")
 
   onValue(historyRef,(snapshot)=>{
-
-   const data = snapshot.val()
-
-   if(data){
-    setHistory(data)
-   }
-
+    const data = snapshot.val()
+    if(data){
+      setHistory(data)
+    }
   })
 
  },[])
 
  return(
 
-  <div style={{padding:"20px"}}>
+  <div>
 
-   <h1>📍 Live Device Tracker</h1>
+    <h1>Device Tracking Platform</h1>
 
-   <LiveMap
-    devices={devices}
-    history={history}
-   />
+    <LiveMap devices={devices} history={history} />
 
   </div>
 
