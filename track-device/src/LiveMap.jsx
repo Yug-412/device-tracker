@@ -1,114 +1,86 @@
-import { MapContainer, TileLayer, Marker, Polyline, Popup, LayersControl } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Polyline, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
 
-const { BaseLayer } = LayersControl
-
-// Online icon
-const onlineIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/743/743922.png",
-  iconSize: [36, 36],
-  iconAnchor: [18, 36]
+const deviceIcon = new L.Icon({
+ iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+ iconSize: [35,35],
+ iconAnchor: [17,35]
 })
 
-// Offline icon
-const offlineIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/565/565547.png",
-  iconSize: [36, 36],
-  iconAnchor: [18, 36]
-})
+function LiveMap({devices,history}){
 
-function LiveMap({ devices = {}, history = {} }) {
+ const deviceArray = devices ? Object.values(devices) : []
 
-  const deviceArray = Object.values(devices)
+ const center = deviceArray.length
+  ? [deviceArray[0].latitude, deviceArray[0].longitude]
+  : [22.30,72.60]
 
-  const center =
-    deviceArray.length > 0
-      ? [deviceArray[0].latitude, deviceArray[0].longitude]
-      : [22.30, 72.60]
+ return(
 
-  return (
+ <MapContainer
+  center={center}
+  zoom={13}
+  style={{height:"500px",width:"100%"}}
+ >
 
-    <MapContainer
-      center={center}
-      zoom={13}
-      style={{ height: "500px", width: "100%" }}
-      scrollWheelZoom={true}
+  <TileLayer
+   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+
+  {/* Device markers */}
+
+  {devices && Object.keys(devices).map(id=>{
+
+   const d = devices[id]
+
+   return(
+
+    <Marker
+     key={id}
+     position={[d.latitude,d.longitude]}
+     icon={deviceIcon}
     >
 
-      <LayersControl position="topright">
+     <Popup>
 
-        {/* Street Map */}
-        <BaseLayer checked name="Street Map">
-          <TileLayer
-            attribution="© OpenStreetMap"
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-        </BaseLayer>
+      Device: {id} <br/>
+      Lat: {d.latitude} <br/>
+      Lon: {d.longitude}
 
-        {/* Satellite Map */}
-        <BaseLayer name="Satellite Map">
-          <TileLayer
-            attribution="Tiles © Esri"
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-          />
-        </BaseLayer>
+     </Popup>
 
-      </LayersControl>
+    </Marker>
 
-      {/* Device markers */}
-      {Object.keys(devices).map(deviceID => {
+   )
 
-        const d = devices[deviceID]
+  })}
 
-        if (!d.latitude || !d.longitude) return null
+  {/* Movement path */}
 
-        return (
+  {history && Object.keys(history).map(deviceID=>{
 
-          <Marker
-            key={deviceID}
-            position={[d.latitude, d.longitude]}
-            icon={d.online ? onlineIcon : offlineIcon}
-          >
+   const coords = Object.values(history[deviceID]).map(point=>[
+    point.latitude,
+    point.longitude
+   ])
 
-            <Popup>
+   return(
 
-              <strong>Driver:</strong> {d.driverName || "Unknown"} <br />
-              <strong>Vehicle:</strong> {d.vehicleName || "Unknown"} <br />
-              <strong>Status:</strong> {d.online ? "🟢 Online" : "🔴 Offline"}
+    <Polyline
+     key={deviceID}
+     positions={coords}
+     color="blue"
+    />
 
-            </Popup>
+   )
 
-          </Marker>
+  })}
 
-        )
+ </MapContainer>
 
-      })}
+ )
 
-      {/* Movement history path */}
-      {Object.keys(history).map(deviceID => {
-
-        const coords = Object.values(history[deviceID]).map(p => [
-          p.latitude,
-          p.longitude
-        ])
-
-        if (coords.length < 2) return null
-
-        return (
-          <Polyline
-            key={deviceID}
-            positions={coords}
-            color="blue"
-            weight={4}
-          />
-        )
-
-      })}
-
-    </MapContainer>
-
-  )
 }
 
 export default LiveMap

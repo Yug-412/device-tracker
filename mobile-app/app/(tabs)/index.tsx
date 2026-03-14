@@ -1,57 +1,63 @@
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 import * as Location from "expo-location";
-import { useState } from "react";
+import { useEffect } from "react";
 
 import { db } from "../../firebase";
-import { ref, set } from "firebase/database";
+import { ref, set, push } from "firebase/database";
 
 export default function HomeScreen() {
 
-  const [location, setLocation] = useState<any>(null);
+  useEffect(() => {
 
-  const getLocation = async () => {
+    const startTracking = async () => {
 
-    const { status } = await Location.requestForegroundPermissionsAsync();
+      const { status } = await Location.requestForegroundPermissionsAsync();
 
-    if (status !== "granted") {
-      alert("Location permission denied");
-      return;
-    }
+      if (status !== "granted") {
+        alert("Location permission denied");
+        return;
+      }
 
-    const loc = await Location.getCurrentPositionAsync({});
+      const deviceId = "device1";
 
-    const latitude = loc.coords.latitude;
-    const longitude = loc.coords.longitude;
+      setInterval(async () => {
 
-    setLocation(loc.coords);
+        const loc = await Location.getCurrentPositionAsync({});
 
-    // send to firebase
-    set(ref(db, "devices/device1"), {
-      latitude,
-      longitude,
-      timestamp: Date.now(),
-      online: true
-    });
+        const latitude = loc.coords.latitude;
+        const longitude = loc.coords.longitude;
+        const timestamp = Date.now();
 
-  };
+        // update current location
+        set(ref(db, "devices/" + deviceId), {
+          latitude,
+          longitude,
+          timestamp,
+          online: true
+        });
+
+        // save movement history
+        push(ref(db, "history/" + deviceId), {
+          latitude,
+          longitude,
+          timestamp
+        });
+
+      }, 5000); // every 5 seconds
+
+    };
+
+    startTracking();
+
+  }, []);
 
   return (
 
     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
 
-      <Text style={{fontSize:22}}>Device Tracker</Text>
-
-      <Button
-        title="Send Location"
-        onPress={getLocation}
-      />
-
-      {location && (
-        <Text>
-          Lat: {location.latitude}  
-          Lon: {location.longitude}
-        </Text>
-      )}
+      <Text style={{fontSize:22}}>
+        Tracking Active 📍
+      </Text>
 
     </View>
 
