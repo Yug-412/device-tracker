@@ -5,43 +5,55 @@ import LiveMap from "./LiveMap"
 
 function Home(){
 
- const [devices,setDevices] = useState({})
- const [history,setHistory] = useState({})
+  const [devices,setDevices] = useState({})
+  const [history,setHistory] = useState({})
 
- useEffect(()=>{
+  useEffect(()=>{
 
-  const devicesRef = ref(db,"devices")
+    // listen for device location
+    const devicesRef = ref(db,"devices")
 
-  onValue(devicesRef,(snapshot)=>{
-    const data = snapshot.val()
-    console.log("DEVICES:",data)
-    if(data){
-      setDevices(data)
-    }
-  })
+    onValue(devicesRef,(snapshot)=>{
 
-  const historyRef = ref(db,"history")
+      const data = snapshot.val()
+      console.log("DEVICES:", data)
 
-  onValue(historyRef,(snapshot)=>{
-    const data = snapshot.val()
-    if(data){
-      setHistory(data)
-    }
-  })
+      if(data){
+        setDevices(data)
+      }
 
- },[])
+    })
 
- return(
+    // listen for movement history
+    const historyRef = ref(db,"history")
 
-  <div>
+    onValue(historyRef,(snapshot)=>{
 
-    <h1>Device Tracking Platform</h1>
+      const data = snapshot.val()
+      console.log("HISTORY:", data)
 
-    <LiveMap devices={devices} history={history} />
+      if(data){
+        setHistory(data)
+      }
 
-  </div>
+    })
 
- )
+  },[])
+
+  return(
+
+    <div style={{padding:"20px"}}>
+
+      <h1>📍 Device Tracking Platform</h1>
+
+      <LiveMap
+        devices={devices}
+        history={history}
+      />
+
+    </div>
+
+  )
 
 }
 
