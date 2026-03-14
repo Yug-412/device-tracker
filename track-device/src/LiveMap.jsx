@@ -1,74 +1,69 @@
-import { MapContainer,TileLayer,Marker,Polyline,Popup } from "react-leaflet"
-import "leaflet/dist/leaflet.css"
+import { useEffect, useMemo } from 'react';
+import { MapContainer, TileLayer, Marker, Polyline, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
-function LiveMap({devices,history}){
+const FitToDevices = ({ devices }) => {
+  const map = useMap();
 
- const deviceArray = devices ? Object.values(devices) : []
+  const points = useMemo(
+    () =>
+      Object.values(devices ?? {})
+        .filter((d) => d?.latitude && d?.longitude)
+        .map((d) => [Number(d.latitude), Number(d.longitude)]),
+    [devices],
+  );
 
- const center = deviceArray.length
-  ? [deviceArray[0].latitude,deviceArray[0].longitude]
-  : [22.30,72.60]
+  useEffect(() => {
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], 13);
+      return;
+    }
+    map.fitBounds(points, { padding: [30, 30] });
+  }, [map, points]);
 
- return(
+  return null;
+};
 
- <MapContainer
-  center={center}
-  zoom={13}
-  style={{height:"500px"}}
- >
+function LiveMap({ devices, history }) {
+  const deviceArray = devices ? Object.values(devices) : [];
+  const defaultCenter = [22.30, 72.60];
 
-  <TileLayer
-   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
+  console.log('LiveMap devices', devices);
+  console.log('LiveMap history', history);
 
-  {devices && Object.keys(devices).map(deviceID=>{
+  return (
+    <MapContainer center={defaultCenter} zoom={3} style={{ height: '500px', width: '100%' }}>
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <FitToDevices devices={devices} />
 
-   const d = devices[deviceID]
+      {deviceArray.map((d, index) => {
+        if (typeof d.latitude !== 'number' && typeof d.latitude !== 'string') return null;
+        if (typeof d.longitude !== 'number' && typeof d.longitude !== 'string') return null;
 
-   return(
+        return (
+          <Marker key={`${d.vehicleId || d.deviceId}-${index}`} position={[Number(d.latitude), Number(d.longitude)]}>
+            <Popup>
+              {d.deviceId ?? 'Unknown'}<br />
+              lat: {d.latitude}<br />
+              lon: {d.longitude}
+            </Popup>
+          </Marker>
+        );
+      })}
 
-    <Marker
-     key={deviceID}
-     position={[d.latitude,d.longitude]}
-    >
+      {history &&
+        Object.keys(history).map((deviceID) => {
+          const coords = Object.values(history[deviceID] ?? {})
+            .map((p) => [Number(p.latitude), Number(p.longitude)])
+            .filter((coord) => Number.isFinite(coord[0]) && Number.isFinite(coord[1]));
 
-     <Popup>
+          if (coords.length < 2) return null;
 
-      Device: {deviceID} <br/>
-      Lat: {d.latitude} <br/>
-      Lon: {d.longitude}
-
-     </Popup>
-
-    </Marker>
-
-   )
-
-  })}
-
-  {history && Object.keys(history).map(deviceID=>{
-
-   const coords = Object.values(history[deviceID]).map(p=>[
-    p.latitude,
-    p.longitude
-   ])
-
-   return(
-
-    <Polyline
-     key={deviceID}
-     positions={coords}
-     color="blue"
-    />
-
-   )
-
-  })}
-
- </MapContainer>
-
- )
-
+          return <Polyline key={deviceID} positions={coords} color="blue" />;
+        })}
+    </MapContainer>
+  );
 }
 
 export default LiveMap

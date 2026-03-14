@@ -7,8 +7,24 @@ import { subscribeToDevices } from '../services/locationService';
 const Dashboard = () => {
   const [devices, setDevices] = useState([]);
   const [selectedDeviceId, setSelectedDeviceId] = useState('');
+  const [error, setError] = useState(null);
 
-  useEffect(() => subscribeToDevices(setDevices, console.error), []);
+  useEffect(() => {
+    const cleanup = subscribeToDevices(
+      (data) => {
+        console.log('Dashboard devices event:', data);
+        setDevices(data);
+        if (!selectedDeviceId && data[0]?.deviceId) {
+          setSelectedDeviceId(data[0].deviceId);
+        }
+      },
+      (err) => {
+        console.error('subscribeToDevices error:', err);
+        setError(err?.message ?? 'Unable to load devices.');
+      },
+    );
+    return cleanup;
+  }, []);
 
   const sortedDevices = useMemo(
     () => [...devices].sort((a, b) => (b.timestamp ?? 0) - (a.timestamp ?? 0)),
@@ -24,6 +40,7 @@ const Dashboard = () => {
         <p>Live GPS telemetry from authenticated mobile devices.</p>
       </header>
 
+      {error ? <div className="error">{error}</div> : null}
       <StatsPanel devices={sortedDevices} />
       <LiveMap devices={sortedDevices} selectedDeviceId={activeDeviceId} />
       <DeviceTable

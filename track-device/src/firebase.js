@@ -1,16 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnL1bmiBY6te5m7112zCc7VfsZsQV-hm8",
-  authDomain: "device-track-330b1.firebaseapp.com",
-  databaseURL: "https://device-track-330b1-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "device-track-330b1",
-  storageBucket: "device-track-330b1.appspot.com",
-  messagingSenderId: "790788580454",
-  appId: "1:790788580454:web:640f8c560b7c0f2db1b9a7"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+if (!firebaseConfig.databaseURL) {
+  console.warn('Missing VITE_FIREBASE_DATABASE_URL in environment variables.');
+}
 
+const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);

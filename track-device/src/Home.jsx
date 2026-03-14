@@ -1,60 +1,64 @@
-import { useEffect, useState } from "react"
-import { ref, onValue } from "firebase/database"
-import { db } from "./firebase"
-import LiveMap from "./LiveMap"
+import { useEffect, useState } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { db } from './firebase';
+import LiveMap from './LiveMap';
 
-function Home(){
+function Home() {
+  const [devices, setDevices] = useState({});
+  const [history, setHistory] = useState({});
+  const [error, setError] = useState('');
 
-  const [devices,setDevices] = useState({})
-  const [history,setHistory] = useState({})
+  useEffect(() => {
+    if (!db) {
+      setError('Firebase DB is not initialized.');
+      return;
+    }
 
-  useEffect(()=>{
+    const devicesRef = ref(db, 'devices');
+    const historyRef = ref(db, 'history');
 
-    // listen for device location
-    const devicesRef = ref(db,"devices")
+    const unDevices = onValue(
+      devicesRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        console.log('DEVICES:', data);
+        setDevices(data ?? {});
+      },
+      (err) => {
+        console.error('DEVICES listener error', err);
+        setError('Failed to load devices');
+      },
+    );
 
-    onValue(devicesRef,(snapshot)=>{
+    const unHistory = onValue(
+      historyRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        console.log('HISTORY:', data);
+        setHistory(data ?? {});
+      },
+      (err) => {
+        console.error('HISTORY listener error', err);
+        setError('Failed to load history');
+      },
+    );
 
-      const data = snapshot.val()
-      console.log("DEVICES:", data)
+    return () => {
+      unDevices();
+      unHistory();
+    };
+  }, []);
 
-      if(data){
-        setDevices(data)
-      }
+  if (error) {
+    return <div style={{ color: 'red' }}>{error}</div>;
+  }
 
-    })
-
-    // listen for movement history
-    const historyRef = ref(db,"history")
-
-    onValue(historyRef,(snapshot)=>{
-
-      const data = snapshot.val()
-      console.log("HISTORY:", data)
-
-      if(data){
-        setHistory(data)
-      }
-
-    })
-
-  },[])
-
-  return(
-
-    <div style={{padding:"20px"}}>
-
+  return (
+    <div style={{ padding: '20px' }}>
       <h1>📍 Device Tracking Platform</h1>
-
-      <LiveMap
-        devices={devices}
-        history={history}
-      />
-
+      <LiveMap devices={devices} history={history} />
     </div>
-
-  )
-
+  );
 }
 
-export default Home
+export default Home;
