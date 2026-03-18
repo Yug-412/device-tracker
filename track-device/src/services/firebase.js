@@ -10,25 +10,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
 };
 
-console.log('Firebase config loaded:', {
-  apiKey: Boolean(firebaseConfig.apiKey),
-  authDomain: Boolean(firebaseConfig.authDomain),
-  databaseURL: Boolean(firebaseConfig.databaseURL),
-  projectId: Boolean(firebaseConfig.projectId),
-});
-
-if (!import.meta.env.VITE_FIREBASE_DATABASE_URL) {
-  console.warn('VITE_FIREBASE_DATABASE_URL is missing. Using fallback database URL from static config. Add env var to avoid this warning.');
-}
-
-export const firebaseApp = {
-  config: firebaseConfig,
-  services: {
-    realtimeDatabase: 'REST streaming endpoint',
-    authentication: 'Identity Toolkit REST API',
-  },
-};
-
 const normalizeUrl = (url) => {
   if (!url) return '';
   return url.replace(/\/+$/, '');
@@ -39,60 +20,70 @@ const toPathUrl = (path) => {
   return `${base}/${path}.json`;
 };
 
+const setByPath = (target, path, value) => {
+  const segments = path.split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return value ?? {};
+  }
+
+  const root = { ...(target ?? {}) };
+  let cursor = root;
+
+  for (let index = 0; index < segments.length - 1; index += 1) {
+    const key = segments[index];
+    cursor[key] = { ...(cursor[key] ?? {}) };
+    cursor = cursor[key];
+  }
+
+  const lastKey = segments[segments.length - 1];
+
+  if (value === null) {
+    delete cursor[lastKey];
+  } else {
+    cursor[lastKey] = value;
+  }
+
+  return root;
+};
+
 export const streamDatabasePath = (path, onData, onError) => {
   if (!firebaseConfig.databaseURL) {
     const error = new Error('Missing VITE_FIREBASE_DATABASE_URL.');
-    console.error(error);
     onError?.(error);
     return () => {};
   }
 
   const url = toPathUrl(path);
-  console.log('Opening Firebase stream:', path, url);
   const stream = new EventSource(url);
-
-  stream.onopen = () => {
-    console.log(`Firebase stream open: ${path}`);
-  };
+  let cachedValue = {};
 
   stream.onmessage = (event) => {
     try {
       const payload = JSON.parse(event.data);
-      if (payload?.data !== undefined) {
-        onData(payload.data);
+      if (payload?.data === undefined) {
+        return;
       }
+
+      if (payload.path === '/') {
+        cachedValue = payload.data ?? {};
+      } else {
+        cachedValue = setByPath(cachedValue, payload.path, payload.data);
+      }
+
+      onData(cachedValue);
     } catch (error) {
-      console.error('Error parsing Firebase stream message:', error, event.data);
       onError?.(error);
     }
   };
 
   stream.onerror = (error) => {
-    console.error(`Firebase stream error (${path}):`, error);
     onError?.(error);
   };
 
   return () => {
-    console.log(`Closing stream: ${path}`);
     stream.close();
   };
 };
 
-export const signInWithEmailPassword = async (email, password) => {
-  const response = await fetch(
-    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, returnSecureToken: true }),
-    },
-  );
-
-  if (!response.ok) {
-    throw new Error('Authentication failed.');
-  }
-
-  return response.json();
-};
-
-export default firebaseApp;
+export default firebaseConfig;
