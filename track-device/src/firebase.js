@@ -11,9 +11,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-if (!firebaseConfig.databaseURL) {
-  console.warn('Missing VITE_FIREBASE_DATABASE_URL in environment variables.');
-}
-
 const app = initializeApp(firebaseConfig);
+
 export const db = getDatabase(app);

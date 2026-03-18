@@ -1,106 +1,74 @@
-import { useEffect, useMemo, useState } from 'react';
-import {
-  LayersControl,
-  MapContainer,
-  Marker,
-  Polyline,
-  Popup,
-  TileLayer,
-  useMap,
-} from 'react-leaflet';
-import { subscribeToDeviceHistory } from '../services/locationService';
-import { vehicleIcon } from '../icons/vehicleIcon';
+import { useEffect } from 'react';
+import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
+import L from 'leaflet';
 
-const DEFAULT_CENTER = [20, 0];
+const markerIcon = new L.Icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
 
-const FitToDevices = ({ devices }) => {
+const FitToPoints = ({ devices, routePoints }) => {
   const map = useMap();
 
   useEffect(() => {
-    const points = devices
-      .filter((d) => typeof d.latitude === 'number' && typeof d.longitude === 'number')
-      .map((d) => [d.latitude, d.longitude]);
+    const positions = [
+      ...devices
+        .map((device) => [device.lastLocation.lat, device.lastLocation.lng])
+        .filter(([lat, lng]) => Number.isFinite(lat) && Number.isFinite(lng)),
+      ...routePoints.map((point) => [point.lat, point.lng]),
+    ];
 
-    if (points.length === 0) {
+    if (positions.length === 0) {
       return;
     }
 
-    if (points.length === 1) {
-      map.setView(points[0], 13);
+    if (positions.length === 1) {
+      map.setView(positions[0], 15);
       return;
     }
 
-    map.fitBounds(points, { padding: [30, 30] });
-  }, [devices, map]);
+    map.fitBounds(positions, { padding: [30, 30] });
+  }, [devices, map, routePoints]);
 
   return null;
 };
 
-const LiveMap = ({ devices, selectedDeviceId }) => {
-  const [history, setHistory] = useState([]);
+const LiveMap = ({ devices, selectedDevice, routePoints }) => (
+  <section className="map-panel">
+    <MapContainer className="map" center={[0, 0]} zoom={2}>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
 
-  useEffect(() => {
-    if (!selectedDeviceId) {
-      return undefined;
-    }
+      <FitToPoints devices={devices} routePoints={routePoints} />
 
-    return subscribeToDeviceHistory(selectedDeviceId, setHistory, console.error);
-  }, [selectedDeviceId]);
+      {devices.map((device) => {
+        const { lat, lng } = device.lastLocation;
+        if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+          return null;
+        }
 
-  const selectedDevice = useMemo(
-    () => devices.find((device) => device.deviceId === selectedDeviceId),
-    [devices, selectedDeviceId],
-  );
+        return (
+          <Marker key={device.userId} icon={markerIcon} position={[lat, lng]}>
+            <Popup>
+              <strong>{device.name}</strong>
+              <br />
+              Status: {device.online ? 'Online' : 'Offline'}
+              <br />
+              Last update: {new Date(device.lastUpdated).toLocaleString()}
+            </Popup>
+          </Marker>
+        );
+      })}
 
-  return (
-    <section className="map-panel">
-      <MapContainer center={DEFAULT_CENTER} zoom={3} scrollWheelZoom className="map">
-        <LayersControl position="topright">
-          <LayersControl.BaseLayer checked name="OpenStreetMap">
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Satellite">
-            <TileLayer
-              attribution='Tiles &copy; Esri'
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-            />
-          </LayersControl.BaseLayer>
-        </LayersControl>
-
-        <FitToDevices devices={devices} />
-
-        {devices.map((device) =>
-          typeof device.latitude === 'number' && typeof device.longitude === 'number' ? (
-            <Marker
-              key={device.deviceId}
-              position={[device.latitude, device.longitude]}
-              icon={vehicleIcon}
-            >
-              <Popup>
-                <strong>{device.driverName ?? 'Unknown driver'}</strong>
-                <br />
-                Vehicle: {device.vehicleName ?? 'Unknown'}
-                <br />
-                Speed: {Math.round(device.speed ?? 0)} km/h
-                <br />
-                Status: {device.online ? 'Online' : 'Offline'}
-              </Popup>
-            </Marker>
-          ) : null,
-        )}
-
-        {selectedDevice && history.length > 1 ? (
-          <Polyline
-            positions={history.map((point) => [point.latitude, point.longitude])}
-            pathOptions={{ color: '#2563eb', weight: 4 }}
-          />
-        ) : null}
-      </MapContainer>
-    </section>
-  );
-};
+      {selectedDevice && routePoints.length > 1 ? (
+        <Polyline positions={routePoints.map((point) => [point.lat, point.lng])} pathOptions={{ color: '#2563eb', weight: 4 }} />
+      ) : null}
+    </MapContainer>
+  </section>
+);
 
 export default LiveMap;

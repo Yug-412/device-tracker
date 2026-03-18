@@ -5,37 +5,38 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #eef2ff;
+  background: #f1f5f9;
   color: #0f172a;
 }
 
 .dashboard {
-  width: min(1200px, 100% - 2rem);
-  margin: 1rem auto 2rem;
   display: grid;
   gap: 1rem;
+  width: min(1400px, calc(100% - 2rem));
+  margin: 1rem auto 2rem;
 }
 
-header h1 {
+.header h1,
+.header p {
   margin: 0;
 }
 
-header p {
-  margin: 0.35rem 0 0;
+.header p {
   color: #475569;
+  margin-top: 0.4rem;
 }
 
 .stats-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 0.8rem;
 }
 
 .stats-panel article {
   background: #fff;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 10px 20px -16px #334155;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.08);
 }
 
 .stats-panel h3,
@@ -44,66 +45,145 @@ header p {
 }
 
 .stats-panel p {
-  margin-top: 0.3rem;
-  font-size: 2rem;
+  margin-top: 0.4rem;
+  font-size: 1.8rem;
   font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.08);
+}
+
+.toolbar input[type='search'] {
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+}
+
+.toolbar button {
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+
+.toolbar button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  min-height: 560px;
+}
+
+.sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.65rem;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.08);
+  overflow: auto;
+  max-height: 700px;
+}
+
+.sidebar-item {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: transparent;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+.sidebar-item p {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.sidebar-item.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.status-pill {
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-pill.online {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status-pill.offline {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.map-column {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.time-filter {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.08);
+}
+
+.time-filter label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+.time-filter input[type='range'] {
+  width: 100%;
 }
 
 .map-panel {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 20px -16px #334155;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.08);
 }
 
 .map {
-  height: 460px;
   width: 100%;
+  min-height: 620px;
 }
 
-.table-wrapper {
-  background: #fff;
-  border-radius: 12px;
-  overflow: auto;
-  box-shadow: 0 10px 20px -16px #334155;
-}
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  .sidebar {
+    max-height: 260px;
+  }
 
-th,
-td {
-  padding: 0.9rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.status {
-  padding: 0.2rem 0.55rem;
-  border-radius: 99px;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.status.online {
-  background: #dcfce7;
-  color: #15803d;
-}
-
-.status.offline {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.map-button {
-  background: #1d4ed8;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
-}
-
-.map-button:disabled {
-  background: #94a3b8;
+  .stats-panel {
+    grid-template-columns: 1fr;
+  }
 }

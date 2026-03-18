@@ -1,57 +1,91 @@
-import { useEffect, useMemo, useState } from 'react';
-import DeviceTable from '../components/DeviceTable';
+import { useMemo, useState } from 'react';
+
 import LiveMap from '../components/LiveMap';
+import Sidebar from '../components/Sidebar';
 import StatsPanel from '../components/StatsPanel';
-import { subscribeToDevices } from '../services/locationService';
+import { useDeviceHistory } from '../hooks/useDeviceHistory';
+import { useDevices } from '../hooks/useDevices';
+import { exportHistoryCsv, filterPointsByWindow } from '../utils/history';
 
 const Dashboard = () => {
-  const [devices, setDevices] = useState([]);
-  const [selectedDeviceId, setSelectedDeviceId] = useState('');
-  const [error, setError] = useState(null);
+  const devices = useDevices();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [onlineOnly, setOnlineOnly] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState('');
+  const [hoursBack, setHoursBack] = useState(24);
 
-  useEffect(() => {
-    const cleanup = subscribeToDevices(
-      (data) => {
-        console.log('Dashboard devices event:', data);
-        setDevices(data);
-        setSelectedDeviceId((curr) => curr || data[0]?.deviceId || '');
-      },
-      (err) => {
-        console.error('subscribeToDevices error:', err);
-        setError(err?.message ?? 'Unable to load devices.');
-      },
-    );
-    return cleanup;
-  }, []);
+  const filteredDevices = useMemo(() => {
+    return devices.filter((device) => {
+      const matchesSearch = device.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesOnline = onlineOnly ? device.online : true;
+      return matchesSearch && matchesOnline;
+    });
+  }, [devices, onlineOnly, searchTerm]);
 
-  const sortedDevices = useMemo(() => {
-    const sorted = [...devices].sort((a, b) => (b.timestamp ?? 0) - (a.timestamp ?? 0));
-    console.log('sortedDevices', sorted);
-    return sorted;
-  }, [devices]);
+  const activeUserId = selectedUserId || filteredDevices[0]?.userId || '';
+  const selectedDevice = useMemo(
+    () => filteredDevices.find((device) => device.userId === activeUserId),
+    [activeUserId, filteredDevices],
+  );
 
-  const activeDeviceId = selectedDeviceId || sortedDevices[0]?.deviceId || '';
+  const history = useDeviceHistory(activeUserId);
+  const routePoints = useMemo(() => filterPointsByWindow(history, hoursBack), [history, hoursBack]);
 
   return (
     <main className="dashboard">
-      <header>
-        <h1>Device Tracking Platform</h1>
-        <p>Live GPS telemetry from authenticated mobile devices.</p>
+      <header className="header">
+        <h1>Real-time GPS Tracking Dashboard</h1>
+        <p>Live status, 24-hour history, and route playback for all registered devices.</p>
       </header>
 
-      {error ? <div className="error">{error}</div> : null}
+      <StatsPanel devices={filteredDevices} />
 
-      <section style={{ marginBottom: '12px', background: '#f3f4f6', padding: '10px', borderRadius: '8px' }}>
-        <strong>DEBUG:</strong> devices={sortedDevices.length} activeDeviceId={activeDeviceId} selectedDeviceId={selectedDeviceId}
+      <section className="toolbar">
+        <input
+          type="search"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder="Search users"
+        />
+        <label>
+          <input
+            type="checkbox"
+            checked={onlineOnly}
+            onChange={(event) => setOnlineOnly(event.target.checked)}
+          />
+          Online only
+        </label>
+        <button
+          type="button"
+          onClick={() => selectedDevice && exportHistoryCsv(selectedDevice.name, routePoints)}
+          disabled={!selectedDevice || routePoints.length === 0}
+        >
+          Export CSV
+        </button>
       </section>
 
-      <StatsPanel devices={sortedDevices} />
-      <LiveMap devices={sortedDevices} selectedDeviceId={activeDeviceId} />
-      <DeviceTable
-        devices={sortedDevices}
-        selectedDeviceId={activeDeviceId}
-        onSelectDevice={setSelectedDeviceId}
-      />
+      <section className="layout">
+        <Sidebar
+          devices={filteredDevices}
+          selectedUserId={activeUserId}
+          onSelectUser={setSelectedUserId}
+        />
+
+        <section className="map-column">
+          <div className="time-filter">
+            <label htmlFor="hoursBack">Route window: last {hoursBack} hour(s)</label>
+            <input
+              id="hoursBack"
+              type="range"
+              min="1"
+              max="24"
+              value={hoursBack}
+              onChange={(event) => setHoursBack(Number(event.target.value))}
+            />
+          </div>
+          <LiveMap devices={filteredDevices} selectedDevice={selectedDevice} routePoints={routePoints} />
+        </section>
+      </section>
     </main>
   );
 };

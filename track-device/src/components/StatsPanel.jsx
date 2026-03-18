@@ -6,15 +6,15 @@ const StatsPanel = ({ devices }) => {
   return (
     <section className="stats-panel">
       <article>
-        <h3>Total vehicles</h3>
+        <h3>Total devices</h3>
         <p>{total}</p>
       </article>
       <article>
-        <h3>Online vehicles</h3>
+        <h3>Online</h3>
         <p>{online}</p>
       </article>
       <article>
-        <h3>Offline vehicles</h3>
+        <h3>Offline</h3>
         <p>{offline}</p>
       </article>
     </section>
