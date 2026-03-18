@@ -1,0 +1,10 @@
+{
+  "android": {
+    "package": "com.yug412.trackdevice"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "7320f350-6128-4811-87a1-b0882fa6f9e3"
+    }
+  }
+}
